@@ -23,7 +23,7 @@ jobs:
   quality-checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
         with:
@@ -47,7 +47,7 @@ jobs:
         run: npx playwright test
 
       - name: Upload Functional Test Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
@@ -57,10 +57,10 @@ jobs:
   security-checks:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
 
         - name: Dependency Review
-          uses: actions/dependency-review-action@v3
+          uses: actions/dependency-review-action@v4
           with:
             config-file: >-
               ./.github/dependency-review-config.yml
